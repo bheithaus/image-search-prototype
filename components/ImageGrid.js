@@ -1,9 +1,9 @@
 import React, { useState, useRef } from 'react'
 import ReactDOM from 'react-dom'
-import 'react-responsive-modal/styles.css'
 import { Modal } from 'react-responsive-modal'
 import ImageOverlay from '../components/ImageOverlay'
 
+import 'react-responsive-modal/styles.css'
 import styles from '../styles/Home.module.css'
 
 const SIZES = {

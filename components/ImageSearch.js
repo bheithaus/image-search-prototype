@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import axios from 'axios'
-
 import ImageGrid from '../components/ImageGrid'
+
 import styles from '../styles/Home.module.css'
 
 export default function ImageSearch() {
@@ -17,16 +17,15 @@ export default function ImageSearch() {
       }
     })
     .then(function (response) {
-      console.log(response.data.photos)
+      console.log(response)
       setResults(response.data.photos)
       setQueried(response.data.query)
       // $("#output").append("<img src='" + data.images[i].display_sizes[0].uri + "'/>");
     })
     .catch(function (error) {
       console.log(error)
-    })
-    .then(function () {
-      // always executed
+      setResults([])
+      setQueried('Query must be close to a word in the English language, please try another')
     })
   }
 
@@ -42,13 +41,14 @@ export default function ImageSearch() {
 
       <input
         type="text"
+        className={styles.input}
         value={query}
         onChange={(e) => setQuery(e.target.value)}
       />
 
       <input
-        className={styles.button}
         type="submit"
+        className={styles.button}
         value="Search"
         onClick={executeSearch}
       />
