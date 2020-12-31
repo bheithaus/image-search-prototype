@@ -1,6 +1,6 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+## Image Search Prototype
 
 First, run the development server:
 
@@ -12,11 +12,39 @@ yarn dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+Create a README that documents the assumptions and decisions that you have
+made in designing the architecture of your site.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+## Prototype site architecture
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+- This is a basic Next.js / React app, so the architecture is fairly out of the box
+- React components are under /components
+- Server helper code is under /lib
+- CSS is stored in one global file, because of the small scale of this prototype
+- The API code is found under /pages/api
+- Sensitive data is stored as environment variables
+- axios is used to simplify making requests on both the client and server
+
+## autocorrect code
+The autocorrect code is based on these basic requirements:
+Your spell checker should perform these specific kinds of typo corrections (and
+only these):
+- Remove non-letter characters. 'nyl;on' should auto-correct to ‘nylon'
+- Mistyped vowels. 'ceku' should auto-correct to ‘cake'
+
+If I had a little more time, I would make sure that the server is caching in memory the result of categorizing the dictionary that I used. 
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## Learn More
 
@@ -26,9 +54,3 @@ To learn more about Next.js, take a look at the following resources:
 - [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
